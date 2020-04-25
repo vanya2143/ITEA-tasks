@@ -19,8 +19,8 @@ class Matrix:
         self.data_list = some_list.copy()
 
     def size(self):
-        row = self.data_list.__len__()
-        col = self.data_list[0].__len__()
+        row = len(self.data_list)
+        col = len(self.data_list[0])
         return tuple([row, col])
 
     def transpose(self):
