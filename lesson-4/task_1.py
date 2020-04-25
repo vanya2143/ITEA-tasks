@@ -24,17 +24,10 @@ class Matrix:
         return tuple([row, col])
 
     def transpose(self):
-        t_matrix = []
-        t_temp = []
-        row, col = self.size()
-
-        for c in range(col):
-            for r in range(row):
-                t_temp.append(self.data_list[r][c])
-
-            t_matrix.append(t_temp)
-            t_temp = []
-
+        _, col = self.size()
+        t_matrix = [
+            [item[i] for item in self.data_list] for i in range(col)
+        ]
         self.data_list = t_matrix
         return self.data_list
 
