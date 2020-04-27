@@ -41,7 +41,7 @@ class Matrix:
     def size(self):
         row = len(self.data_list)
         col = len(self.data_list[0])
-        return tuple([row, col])
+        return row, col
 
     def transpose(self):
         _, col = self.size()
@@ -63,18 +63,29 @@ if __name__ == '__main__':
     list_2 = [[2, 3, 0], [1, 2, 3], [5, 6, 4]]
     list_3 = [[2, 3], [1, 2], [5, 6]]
 
-    t = Matrix(list_1)
-    t.transpose()
-    print(t.data_list)
-    print(t)
+    t1 = Matrix(list_1)
+    t1.transpose()
 
     t2 = Matrix.create_transposed(list_2)
-    print(t2.data_list)
-
-    print("__add__", t + t2)
 
     t3 = Matrix(list_3)
-    t3.transpose()
-    # print(t + t3)
 
-    print("__mul__", t2 * 3)
+    print("t1: ", t1.data_list)
+    print("t2: ", t2.data_list)
+    print("t3: ", t3.data_list)
+
+# __add__
+    print("\n__add__ t1 + t2: ", t1 + t2)
+
+    try:
+        print("\nПробую: t1 + t3")
+        print(t1 + t3)
+    except MatrixSizeError:
+        print('Тут было вызвано исключение MatrixSizeError')
+
+# __mul__
+    print("\n__mul__ t2 * 3: \n", t2 * 3)
+
+# __str__
+    print('\n__str__ t1')
+    print(t1)
