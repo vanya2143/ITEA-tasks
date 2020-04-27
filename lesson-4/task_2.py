@@ -75,7 +75,7 @@ if __name__ == '__main__':
     print("t3: ", t3.data_list)
 
 # __add__
-    print("\n__add__ t1 + t2: ", t1 + t2)
+    print("\nt1.__add__(t2) : ", t1 + t2)
 
     try:
         print("\nПробую: t1 + t3")
@@ -84,8 +84,8 @@ if __name__ == '__main__':
         print('Тут было вызвано исключение MatrixSizeError')
 
 # __mul__
-    print("\n__mul__ t2 * 3: \n", t2 * 3)
+    print("\nt2.__mul__(3): \n", t2 * 3)
 
 # __str__
-    print('\n__str__ t1')
+    print('\nt1.__str__')
     print(t1)
