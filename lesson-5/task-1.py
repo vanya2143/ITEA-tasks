@@ -9,7 +9,7 @@ def gen_events(instance, data, count=2):
         instance.add_event(f'Event-{event}-{i}', event)
 
 
-# Список событий
+# Singleton на примере списка событий
 class EventsMeta(type):
     _instance = None
 
