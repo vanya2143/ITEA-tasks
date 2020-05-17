@@ -21,7 +21,6 @@ class Matrix:
         self.data_list = some_list.copy()
 
     def __add__(self, other):
-        row, col = self.size()
 
         if self.size() != other.size():
             raise MatrixSizeError(
@@ -29,7 +28,8 @@ class Matrix:
             )
 
         return [
-            [self.data_list[j][i] + other.data_list[j][i] for i in range(row)] for j in range(col)
+            [self.data_list[row][col] + other.data_list[row][col] for col in range(self.size()[1])]
+            for row in range(self.size()[0])
         ]
 
     def __mul__(self, other):
