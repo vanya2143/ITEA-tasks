@@ -33,10 +33,7 @@ class Matrix:
         return ''.join('%s\n' % '\t'.join(map(str, x)) for x in self.data_list).rstrip('\n')
 
     def get_counter(self):
-        tmp_list = []
-        for elem in self.data_list:
-            tmp_list.extend(elem)
-        return self.counter(tmp_list)
+        return self.counter(elem for list_elem in self.data_list for elem in list_elem)
 
     def size(self):
         row = len(self.data_list)
@@ -44,9 +41,8 @@ class Matrix:
         return row, col
 
     def transpose(self):
-        _, col = self.size()
         t_matrix = [
-            [item[i] for item in self.data_list] for i in range(col)
+            [item[i] for item in self.data_list] for i in range(self.size()[1])
         ]
         self.data_list = t_matrix
         return self.data_list
