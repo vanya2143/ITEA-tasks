@@ -56,12 +56,10 @@ class Matrix:
 
 if __name__ == '__main__':
     list_1 = [[1, 2, 9], [3, 4, 0], [5, 6, 4]]
-    list_2 = [[2, 3, 0], [1, 2, 3], [5, 6, 4]]
-    list_3 = [[2, 3], [1, 2], [5, 6]]
+    list_2 = [[2, 3], [1, 2], [5, 6]]
 
     matrix1 = Matrix(list_1)
     matrix2 = Matrix(list_2)
-    matrix3 = Matrix(list_3)
 
-    print(matrix1.data_list)
     print(matrix1.get_counter())
+    print(matrix2.get_counter())
