@@ -26,13 +26,16 @@ import asyncio
 from time import time
 
 
-async def req(url):
-    session = aiohttp.ClientSession()
-    time_start = time()
+async def get_resp(session, url):
     async with session.get(url) as resp:
-        time_end = time()
-        print(f"Resource '{url}', request took {time_end - time_start:.3f}, response status - {resp.status}")
-    await session.close()
+        return resp.status
+
+
+async def req(url):
+    async with aiohttp.ClientSession() as session:
+        time_start = time()
+        status_code = await get_resp(session, url)
+        print(f"Resource '{url}', request took {time() - time_start:.3f}, response status - {status_code}")
 
 
 if __name__ == '__main__':
