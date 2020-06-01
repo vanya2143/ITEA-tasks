@@ -21,12 +21,11 @@ class Matrix:
     def size(self):
         row = len(self.data_list)
         col = len(self.data_list[0])
-        return tuple([row, col])
+        return row, col
 
     def transpose(self):
-        _, col = self.size()
         t_matrix = [
-            [item[i] for item in self.data_list] for i in range(col)
+            [item[i] for item in self.data_list] for i in range(self.size()[1])
         ]
         self.data_list = t_matrix
         return self.data_list

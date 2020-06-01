@@ -26,15 +26,15 @@ import asyncio
 from time import time
 
 
-async def get_resp(session, url):
+async def get_response(session, url):
     async with session.get(url) as resp:
         return resp.status
 
 
-async def req(url):
+async def request(url):
     async with aiohttp.ClientSession() as session:
         time_start = time()
-        status_code = await get_resp(session, url)
+        status_code = await get_response(session, url)
         print(f"Resource '{url}', request took {time() - time_start:.3f}, response status - {status_code}")
 
 
@@ -57,7 +57,7 @@ if __name__ == '__main__':
         "https://www.ietf.org/rfc/rfc2616.txt"
     ]
 
-    futures = [req(url) for url in urls]
+    futures = [request(url) for url in urls]
 
     loop = asyncio.get_event_loop()
     t_start = time()
