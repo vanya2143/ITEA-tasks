@@ -18,9 +18,4 @@ def get_sum_of_components_two(n):
 
 
 if __name__ == '__main__':
-    # Вариант 1
-    get_sum_of_components(123)
-    print(s)
-
-    # Вариант 2
     print(get_sum_of_components_two(123))
