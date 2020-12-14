@@ -76,7 +76,6 @@ class Events(metaclass=EventsMeta):
             print('Указан неверный тип события')
             return
 
-    # Для генератора ))
     @classmethod
     def get_events_types(cls):
         return cls._events.keys()
